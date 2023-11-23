@@ -1,4 +1,3 @@
-package src;
 
 public abstract class Player {
     private String name;
@@ -16,9 +15,6 @@ public abstract class Player {
         return guesses;
     }
 
-    public void setGuesses(int[] guesses) {
-        this.guesses = guesses;
-    }
-
     public abstract int makeGuess();
 }
+//usar método construtor

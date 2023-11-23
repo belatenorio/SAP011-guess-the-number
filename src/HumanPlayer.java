@@ -1,4 +1,3 @@
-package src;
 
 import java.util.Scanner;
 
@@ -7,7 +6,8 @@ public class HumanPlayer extends Player {
 
     @Override
     public int makeGuess() {
-        int humanGuess = scanner.nextInt();
-        return humanGuess;
+        //int humanGuess = scanner.nextInt();
+        //return humanGuess;
+        return scanner.nextInt();
     }
 }
