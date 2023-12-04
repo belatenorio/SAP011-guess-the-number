@@ -1,49 +1,64 @@
-package src;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class GuessTheNumberGame {
     //Random class
-    Random random = new Random();
-    int targetNumber = random.nextInt(100) + 1; // pesquisar método construtor
+    Random random;
+    int targetNumber;
+
+    public GuessTheNumberGame(Random random) {
+        this.random = random;
+        this.targetNumber = random.nextInt(100) + 1;
+    }
 
     public static void main(String[] args) {
 
-        GuessTheNumberGame game = new GuessTheNumberGame();
+        GuessTheNumberGame game = new GuessTheNumberGame(new Random());
 
         Player human = new HumanPlayer();
 
-        Player computer = new ComputerPlayer();
-        computer.setName("PC");
+        Player computer = new ComputerPlayer(new Random());
+        computer.setName("Computer");
+
+        System.out.println("Welcome to Guess the Number! Let's go guess!\n");
+        System.out.println("Human player, please, write your name: ");
 
         //Scanner class
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Let's go guess!");
-        System.out.println("Human player, please, write your name: ");
-
         String playerName = scanner.nextLine();
         human.setName(playerName);
 
-        System.out.println("A number is chosen " + "between 1 to 100. " + " Guess the number " + "within 10 trials.");
-        System.out.println("The number is: " + game.targetNumber);
+        System.out.println("The number was drawn from 1 to 100. There are 10 rounds. Try to get it right.\n");
+        System.out.println("The computer is your opponent.");
 
-        int trials = 5;
+        int attempts = 10;
         int i;
 
-        for (i = 0; i < 5; i++) {
-            game.checkGuess(human);
+        for (i = 0; i < 10; i++) {
+
+            boolean humanWins = game.checkGuess(human);
+
+            if (humanWins) {
+                break;
+            }
+            boolean computerWins = game.checkGuess(computer);
+
+            if (computerWins) {
+                break;
+            }
         }
-        if (i == trials) {
-            System.out.println("You have exhausted" + " 5 trials.");
-            //System.out.println("The number was " + game.targetNumber);
+        if (i == attempts) {
+            System.out.println("\nYou have exhausted 10 attempts.");
+            System.out.println("The number was " + game.targetNumber);
         }
+
     }
 
     public boolean checkGuess(Player player) {
 
-        System.out.println(player.getName() + " enter your guess:");
+        System.out.println("\n" + player.getName() + ", enter your guess:");
 
         int guess = player.makeGuess();
 
@@ -54,7 +69,8 @@ public class GuessTheNumberGame {
             System.out.println("Too low!");
             return false;
         } else {
-            System.out.println("Congratulations! " + player.getName() + " .You guessed the number.");
+            System.out.println("Congratulations! " + player.getName() + ". You guessed the number.");
+            System.out.println("Attempts: " + player.getGuesses());
             return true;
         }
     }

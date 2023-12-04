@@ -1,8 +1,11 @@
-package src;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Player {
     private String name;
-    private int[] guesses;
+    private List<Integer> guesses;
+
+    public Player(){ guesses = new ArrayList<>(); }
 
     public String getName() {
         return name;
@@ -12,12 +15,8 @@ public abstract class Player {
         this.name = name;
     }
 
-    public int[] getGuesses() {
+    public List<Integer> getGuesses() {
         return guesses;
-    }
-
-    public void setGuesses(int[] guesses) {
-        this.guesses = guesses;
     }
 
     public abstract int makeGuess();
