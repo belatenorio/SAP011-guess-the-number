@@ -6,8 +6,8 @@ public class HumanPlayer extends Player {
 
     @Override
     public int makeGuess() {
-        //int humanGuess = scanner.nextInt();
-        //return humanGuess;
-        return scanner.nextInt();
+        int humanGuess = scanner.nextInt();
+        this.getGuesses().add(humanGuess);
+        return humanGuess;
     }
 }

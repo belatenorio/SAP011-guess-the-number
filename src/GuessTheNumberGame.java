@@ -21,7 +21,7 @@ public class GuessTheNumberGame {
         Player computer = new ComputerPlayer(new Random());
         computer.setName("Computer");
 
-        System.out.println("Let's go guess!");
+        System.out.println("Welcome to Guess the Number! Let's go guess!\n");
         System.out.println("Human player, please, write your name: ");
 
         //Scanner class
@@ -30,9 +30,10 @@ public class GuessTheNumberGame {
         String playerName = scanner.nextLine();
         human.setName(playerName);
 
-        System.out.println("A number is chosen " + "between 1 to 100. " + "Guess the number " + "within 10 trials.");
+        System.out.println("The number was drawn from 1 to 100. There are 10 rounds. Try to get it right.\n");
+        System.out.println("The computer is your opponent.");
 
-        int trials = 10;
+        int attempts = 10;
         int i;
 
         for (i = 0; i < 10; i++) {
@@ -48,8 +49,8 @@ public class GuessTheNumberGame {
                 break;
             }
         }
-        if (i == trials) {
-            System.out.println("You have exhausted" + " 10 trials.");
+        if (i == attempts) {
+            System.out.println("\nYou have exhausted 10 attempts.");
             System.out.println("The number was " + game.targetNumber);
         }
 
@@ -57,7 +58,7 @@ public class GuessTheNumberGame {
 
     public boolean checkGuess(Player player) {
 
-        System.out.println(player.getName() + ", enter your guess:");
+        System.out.println("\n" + player.getName() + ", enter your guess:");
 
         int guess = player.makeGuess();
 
@@ -69,7 +70,7 @@ public class GuessTheNumberGame {
             return false;
         } else {
             System.out.println("Congratulations! " + player.getName() + ". You guessed the number.");
-            //colocar o array de suposições
+            System.out.println("Attempts: " + player.getGuesses());
             return true;
         }
     }
