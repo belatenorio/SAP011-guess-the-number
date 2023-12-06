@@ -2,11 +2,11 @@
 
 ## Índice
 
-- [1. Resumo do Projeto](#1-considerações-gerais)
-- [2. Criação dos testes unitários](#2-prefácio)
-- [3. Tecnologias utilizadas](#3-resumo-do-projeto)
-- [4. Implementação futura](#4-objetivos-de-aprendizado)
-- [5. Desenvolvedora](#5-considerações-gerais)
+- [1. Resumo do Projeto](#1-resumo-do-projeto)
+- [2. Criação dos testes unitários](#2-criação-dos-testes-unitários)
+- [3. Tecnologias utilizadas](#3-tecnologias-utilizadas)
+- [4. Implementação futura](#4-implementação-futura)
+- [5. Desenvolvedora](#5-desenvolvedora)
 
 ---
 
