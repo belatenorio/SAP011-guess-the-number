@@ -59,5 +59,3 @@ public class GuessTheNumberGameTest {
         Assertions.assertEquals(true, result);
     }
 }
-
-//teste para quantidade de vezes de jogada

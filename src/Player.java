@@ -5,7 +5,9 @@ public abstract class Player {
     private String name;
     private List<Integer> guesses;
 
-    public Player(){ guesses = new ArrayList<>(); }
+    public Player() {
+        guesses = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
